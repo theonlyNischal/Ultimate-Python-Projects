@@ -13,7 +13,6 @@ def create_snapshot(directory, filename):
     for root, dirs, files in os.walk(directory):
         cumulative_directories = cumulative_directories + dirs
         cumulative_files = cumulative_files + files
-    print(cumulative_directories, cumulative_files)
     try:
         output = open(filename, 'wb')
         pickle.dump(cumulative_directories, output, -1)
@@ -22,6 +21,8 @@ def create_snapshot(directory, filename):
     except:
         print("Problems Encountered")
         input("Press Enter To Continue...")
+        return
+    input("Press Enter To Continue...")
     return
 
 def snapshot_list(extension):
