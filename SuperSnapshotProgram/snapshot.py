@@ -3,7 +3,7 @@ This is the main module,
 It will display menu to the user and make descision based on
 what the user has selected.
 """
-import os, pickle
+import os, pickle, difflib
 
 
 
@@ -21,6 +21,7 @@ def create_snapshot(directory, filename):
         output.close()
     except:
         print("Problems Encountered")
+        input("Press Enter To Continue...")
     return
 
 def snapshot_list(extension):
@@ -43,6 +44,64 @@ def snapshot_list(extension):
             print(file)
     else:
         print("No Snapshot Availaible.")
+
+    input("Press Enter To Continue...")
+
+def compare_snapshot(snapfile1, snapfile2):
+
+    pkl_file1 = open(snapfile1, 'rb')
+    dirs_1 = pickle.load(pkl_file1)
+    files_1 = pickle.load(pkl_file1)
+    pkl_file1.close()
+
+    pkl_file2 = open(snapfile2, 'rb')
+    dirs_2 = pickle.load(pkl_file2)
+    files_2 = pickle.load(pkl_file2)
+    pkl_file2.close()
+
+
+  
+
+    result_dirs = list(difflib.unified_diff(dirs_1, dirs_2))
+    result_files = list(difflib.unified_diff(files_1, files_2))
+
+    added_dirs = []
+    added_files = []
+    removed_dirs = []
+    removed_files = []
+
+    for result in result_files:
+        if result.find("\n") == -1:
+            if result.startswith("+"):
+                resultadd = result.strip('+')
+                added_files.append(resultadd)
+            elif result.startswith('-'):
+                resultsubtract = result.strip('-')
+                removed_files.append(resultsubtract)
+
+    for result in result_dirs:
+        if result.find("\n") == -1:
+            if result.startswith("+"):
+                resultadd = result.strip('+')
+                added_dirs.append(resultadd)
+            elif result.startswith('-'):
+                resultsubtract = result.strip('-')
+                removed_dirs.append(resultsubtract)
+
+
+
+
+
+    print("\n\nAdded Directories:\n")
+    print(added_dirs)
+    print ("\n\nAdded Files:\n")
+    print(added_files)
+    print ("\n\nRemoved Directories:\n")
+    print(removed_dirs)
+    print ("\n\nRemoved Files:\n")
+    print(removed_files)
+    input("Enter to continue..")
+
 
 
 
@@ -92,7 +151,16 @@ while choice != '5':
         snapshot_list(extension)
 
     elif choice == '3':
-        print("Pressed 3")
+        clear_screen()
+        print("""
+            Compare SNAPSHOT
+            ================
+            """)
+
+        snapfile1 = input("Enter name of first snapshot file: ")
+        snapfile2 = input("Enter name of second snapshot file: ")
+        compare_snapshot(snapfile1, snapfile2)
+
     elif choice == '4':
         print('Pressed 4.')
     else:
