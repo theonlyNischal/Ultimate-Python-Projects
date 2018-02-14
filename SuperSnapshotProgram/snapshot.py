@@ -50,21 +50,28 @@ def snapshot_list(extension):
 
 def compare_snapshot(snapfile1, snapfile2):
 
-    pkl_file1 = open(snapfile1, 'rb')
-    dirs_1 = pickle.load(pkl_file1)
-    files_1 = pickle.load(pkl_file1)
-    pkl_file1.close()
+    try:
 
-    pkl_file2 = open(snapfile2, 'rb')
-    dirs_2 = pickle.load(pkl_file2)
-    files_2 = pickle.load(pkl_file2)
-    pkl_file2.close()
+        pkl_file1 = open(snapfile1, 'rb')
+        dirs_1 = pickle.load(pkl_file1)
+        files_1 = pickle.load(pkl_file1)
+        pkl_file1.close()
+
+        pkl_file2 = open(snapfile2, 'rb')
+        dirs_2 = pickle.load(pkl_file2)
+        files_2 = pickle.load(pkl_file2)
+        pkl_file2.close()
+    except:
+        print("Problems Encountered")
+        input("Press Enter To Continue....")
+        return
 
 
   
 
     result_dirs = list(difflib.unified_diff(dirs_1, dirs_2))
     result_files = list(difflib.unified_diff(files_1, files_2))
+
 
     added_dirs = []
     added_files = []
@@ -102,6 +109,34 @@ def compare_snapshot(snapfile1, snapfile2):
     print ("\n\nRemoved Files:\n")
     print(removed_files)
     input("Enter to continue..")
+
+
+def show_help():
+    clear_screen()
+    print("""
+
+            DIRECTORY/FILE COMPARISON TOOL
+            ==============================
+
+            Welcome to the DIRECTORY/FILE COMPARISON TOOL help.
+            This tool allows you to create snapshot of a directory/file tree,
+            list the snapshots you created in the current directory, and compare
+            any two snapshots.
+
+            You can select any 5 options from menu
+
+            1. Create a snapshot
+            2. List snapshot files
+            3. Comapre Snapshots
+            4. Help
+            5. Exit
+
+
+
+        """)
+
+    input("Press Enter To Continue...")
+
 
 
 
@@ -163,10 +198,6 @@ while choice != '5':
         compare_snapshot(snapfile1, snapfile2)
 
     elif choice == '4':
-        print('Pressed 4.')
+        show_help()
     else:
-        print("Pressed 5.")
-
-
-
-
+        print("Bye Bye...")
