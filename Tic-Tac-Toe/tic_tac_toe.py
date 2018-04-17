@@ -48,10 +48,7 @@ def check_game_draw(board):
 def play_again():
     return input("Enter 'Y' or 'y' to play again: ").lower().startswith('y')
 
-
-
-
-if __name__ == '__main__':
+def start_game():
     while True:
         gameOn = True
         the_board = [' '] * 10
@@ -96,3 +93,11 @@ if __name__ == '__main__':
                     turn = 'Player 1'
         if not play_again():
             break
+
+
+
+
+
+if __name__ == '__main__':
+    start_game()
+    
