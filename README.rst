@@ -2,7 +2,7 @@
 Small List of my Python Projects
 ********************************
 
-Learning can be super hard and frustrating if you don't do what you like to do. Here is my small list of projects which i do to do what i like to do(LOL)
+Learning can be super hard and frustrating if you don't do what you like to do. Here is my small list of projects which I do to do what i like to do(LOL)
 
 * `SuperSnapShotProgram <https://github.com/theonlyNischal/Ultimate-Python-Projects/tree/master/SuperSnapshotProgram>`_ 
     SuperSnapshot is a python program which keeps the track of files and directory. Its works similar to the version control but with limited features. 
