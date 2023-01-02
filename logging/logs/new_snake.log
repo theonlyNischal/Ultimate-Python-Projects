@@ -1,0 +1,3 @@
+2021-08-16 12:21:40,599 - exampleApp - INFO - Program started
+2021-08-16 12:21:40,599 - exampleApp.otherModule2.add - INFO - added 7 and 8 to get 15
+2021-08-16 12:21:40,599 - exampleApp - INFO - Done!

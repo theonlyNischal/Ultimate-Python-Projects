@@ -1,0 +1,15 @@
+2021-10-13 22:41:28,906 - custom_thread_example - Thread-1 - INFO - Started thread
+2021-10-13 22:41:28,907 - custom_thread_example - Thread-1 - INFO - Started double_number
+2021-10-13 22:41:28,907 - custom_thread_example - Thread-2 - INFO - Started thread
+2021-10-13 22:41:28,907 - custom_thread_example - Thread-2 - INFO - Started double_number
+2021-10-13 22:41:28,907 - custom_thread_example - Thread-3 - INFO - Started thread
+2021-10-13 22:41:28,908 - custom_thread_example - Thread-3 - INFO - Started double_number
+2021-10-13 22:41:28,908 - custom_thread_example - Thread-4 - INFO - Started thread
+2021-10-13 22:41:28,908 - custom_thread_example - Thread-5 - INFO - Started thread
+2021-10-13 22:41:28,909 - custom_thread_example - Thread-4 - INFO - Started double_number
+2021-10-13 22:41:28,909 - custom_thread_example - Thread-5 - INFO - Started double_number
+2021-10-13 22:41:29,908 - custom_thread_example - Thread-1 - INFO - Finished double_number
+2021-10-13 22:41:29,909 - custom_thread_example - Thread-3 - INFO - Finished double_number
+2021-10-13 22:41:29,909 - custom_thread_example - Thread-2 - INFO - Finished double_number
+2021-10-13 22:41:29,910 - custom_thread_example - Thread-4 - INFO - Finished double_number
+2021-10-13 22:41:29,911 - custom_thread_example - Thread-5 - INFO - Finished double_number
